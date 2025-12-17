@@ -10,7 +10,7 @@ public class Plant {
     private int frequencyOfWatering;    //počet dnů do další zálivky
 
     //region constructors
-    public Plant(String name, String notes, LocalDate planted, LocalDate watering, int frequencyOfWatering) throws PlantException {
+    public Plant(String name, String notes, int frequencyOfWatering, LocalDate watering, LocalDate planted ) throws PlantException {
         this.name = name;
         this.notes = notes;
         this.planted = planted;

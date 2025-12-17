@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 public class Settings {
 
     public static final DateTimeFormatter FORMAT_CZ_DATE = DateTimeFormatter.ofPattern("d.M.yyyy"); //nastavení formatu datumu
-    private final static String DELIMITER = ";";
+    private final static String DELIMITER = "\t";
     private static final int NUMBER_OF_PARTS_ON_LINE = 5;
 
     public static String getDELIMITER() {

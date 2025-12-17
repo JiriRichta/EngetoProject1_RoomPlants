@@ -56,6 +56,11 @@ public class PlantManager{
         return plants.size();
     }
 
+        //smazání celého seznamu
+    public void clearAll(){
+        plants.clear();
+    }
+
         //razení dle jsména - defaultně
     public void sort(){
         plants.sort(Comparator.comparing(Plant::getName));
@@ -76,7 +81,7 @@ public class PlantManager{
     }
 
         //načtení seznamu ze souboru
-        public void loadContentFromFile(String fileName, String delimiter) throws PlantException {
+        public void loadContentFromFile(String fileName) throws PlantException {
             int lineNumber = 0;     // pro lokalizaci chyby
 
             plants.clear();
@@ -108,11 +113,11 @@ public class PlantManager{
         try {
             String name= parts[0];
             String notes= parts[1];;
-            LocalDate planted= LocalDate.parse(parts[2]);;
+            LocalDate planted= LocalDate.parse(parts[4]);;
             LocalDate watering= LocalDate.parse(parts[3]);;
-            int frequencyOfWatering= Integer.parseInt(parts[4]);;
+            int frequencyOfWatering= Integer.parseInt(parts[2]);;
 
-            return new Plant(name,notes,planted,watering,frequencyOfWatering);
+            return new Plant(name,notes,frequencyOfWatering,watering, planted);
         } catch (NumberFormatException e) {
             throw new PlantException(
                     "Chybný formát čísla na řádku číslo: " + lineNumber +
@@ -143,9 +148,9 @@ public class PlantManager{
             for (Plant plant : plants) {
                 String line = plant.getName() + Settings.getDELIMITER() +
                         plant.getNotes() + Settings.getDELIMITER() +
-                        plant.getPlanted() + Settings.getDELIMITER()+
-                        plant.getWatering() + Settings.getDELIMITER() +
-                        plant.getFrequencyOfWatering() +Settings.getDELIMITER();
+                        plant.getFrequencyOfWatering() +Settings.getDELIMITER()+
+                        plant.getWatering() + Settings.getDELIMITER()+
+                        plant.getPlanted();
                 writer.println(line);
             }
         } catch (IOException e) {

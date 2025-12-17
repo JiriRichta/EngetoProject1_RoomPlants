@@ -1,7 +1,6 @@
 package cz.engeto.roomPlants;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Plant {
     private String name;
@@ -63,7 +62,7 @@ public class Plant {
     public LocalDate getWatering() {
         return watering;
     }
-
+        //ještě bych měl ohlídat že žádný ze zadaných datumů není z budoucnosti
     public void setWatering(LocalDate watering) throws PlantException {
         if (watering.isBefore(planted)){throw new PlantException("Zadání data poslední zálivky nesmí být starší než datum zasazení rostliny");}
             this.watering = watering;
@@ -73,6 +72,7 @@ public class Plant {
         return frequencyOfWatering;
     }
 
+        //ještě bych měl ohlídat že žádný ze zadaných datumů není z budoucnosti
     public void setFrequencyOfWatering(int frequencyOfWatering) throws PlantException {
         if(frequencyOfWatering<=0){
             throw new PlantException("Zadaná frekvecne zálivky musí být větší něž 0. zadali jste chybně hodnotu :"

@@ -5,20 +5,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class PlatntManager{
+public class PlantManager{
 
-    private List<Plant>plants;
-    private String listNote;
+    private List<Plant>plants=new ArrayList<>();
 
     //region construktor
-    public PlatntManager(List<Plant> plants, String listNote) {
-        this.plants = new ArrayList<>(plants);
-        this.listNote = listNote;
-    }
-        //kdybych potřeboval vytvořit seznam květin s nějakým konkrétním popisem
-    public PlatntManager(List<Plant> plantManager) {
-        this.plants = new ArrayList<>(plants);
-        this.listNote = "no comment";
+    public PlantManager() {
     }
     //endregion construktor
 
@@ -39,7 +31,7 @@ public class PlatntManager{
     }
 
         //získání kopie seznamu květin
-    public List<Plant> getNewPlants() {
+    public List<Plant> getCopyOfPlantsList() {
             return new ArrayList<>(plants);
     }
 
@@ -55,12 +47,28 @@ public class PlatntManager{
             return plantsToWatering;
         }
 
-    public String getListNote() {
-        return "poznámka: "+ listNote;
+        //získání velikosti seznamu
+    public int getSizeOfPlantsList(){
+        return plants.size();
     }
 
-    public void setListNote(String listNote) {
-        this.listNote = listNote;
+        //razení dle jsména - defaultně
+    public void sort(){
+        plants.sort(Comparator.comparing(Plant::getName));
+    }
+        //razení dle jména - přímo určená metoda
+    public void sortByName(){
+        plants.sort(Comparator.comparing(Plant::getName));
+    }
+
+        //razení dle poslední zálivky- přímo určená metoda
+    public void sortByLastWatering(){
+        plants.sort(Comparator.comparing(Plant::getWatering).reversed());
+    }
+
+        //řazení dle nastavení komparátoru v naší metodě sort
+    public void sort(Comparator<Plant>comparator){
+        plants.sort(comparator);
     }
     //end region methods
 

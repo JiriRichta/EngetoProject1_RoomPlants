@@ -90,5 +90,8 @@ public class Plant {
     public void doWateringNow(){
         this.watering = LocalDate.now();
     }
+
+    @Override
+    public String toString(){return "["+getName()+", poslední zálivka "+getWatering()+", frekvence zalévání "+getFrequencyOfWatering()+"] ";}
 }
 

@@ -3,6 +3,7 @@ package cz.engeto.roomPlants;
 import java.io.*;
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -141,8 +142,8 @@ public class PlantManager{
         }
     }
 
-    public void saveContentToFile(String fileName)
-            throws PlantException {
+    public void saveContentToFile(String fileName) throws PlantException {
+
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(
                 new FileWriter(fileName)))) {
             for (Plant plant : plants) {

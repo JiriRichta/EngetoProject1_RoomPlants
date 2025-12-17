@@ -75,7 +75,7 @@ public class Plant {
         //ještě bych měl ohlídat že žádný ze zadaných datumů není z budoucnosti
     public void setFrequencyOfWatering(int frequencyOfWatering) throws PlantException {
         if(frequencyOfWatering<=0){
-            throw new PlantException("Zadaná frekvecne zálivky musí být větší něž 0. zadali jste chybně hodnotu :"
+            throw new PlantException("Zadaná frekvecne zálivky musí být větší něž 0. Zadali jste chybně hodnotu :"
                     +frequencyOfWatering);
         }
         this.frequencyOfWatering = frequencyOfWatering;

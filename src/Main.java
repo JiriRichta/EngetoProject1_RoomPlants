@@ -17,6 +17,7 @@ public class Main {
         }catch (PlantException e){
             System.err.println(e.getMessage()); plantManager.clearAll();
         }
+
         if(plantManager.getSizeOfPlantsList()!=0) {
 
             for (Plant plant : plantManager.getCopyOfPlantsList()) {
